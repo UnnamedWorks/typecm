@@ -1,0 +1,18 @@
+{
+  "name": "typecm",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc & node out/index.js"
+  },
+  "keywords": [],
+  "author": "Unnamed Team",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.0.23",
+    "@types/ws": "^7.2.6",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0"
+  }
+}
