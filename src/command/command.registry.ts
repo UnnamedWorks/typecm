@@ -14,4 +14,8 @@ export default class CommandRegistry {
         command.aliases.forEach(alias => this.commands.set(alias.toLowerCase(), command));
     }
 
+    public registerCommands(commandArray: Command[]): void {
+        commandArray.forEach(command => this.registerCommand(command));
+    }
+
 }

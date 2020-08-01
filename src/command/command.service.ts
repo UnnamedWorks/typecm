@@ -6,6 +6,7 @@ import CommandParser from "./parser/command.parser";
 import Binder from "./parameter.converter/bind/simple.binding.builder";
 import EvalCommandExecutor from "./executor/eval.command.executor";
 import DefaultCommandExecutor from "./executor/default.command.executor";
+import DefaultConvertersModule from "./parameter.converter/defaults/defaults.module";
 
 export interface CommandServiceSettings {
 
@@ -31,6 +32,7 @@ export default class CommandService {
             this.executor = new DefaultCommandExecutor();
         }
         this.dispatcher = new CommandDispatcher(this.registry, this.parser, this.executor, this.binder);
+        this.binder.install(new DefaultConvertersModule());
     }
 
 }

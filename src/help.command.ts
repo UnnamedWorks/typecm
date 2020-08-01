@@ -1,26 +1,12 @@
-import Command, {Requirement} from "./command/command";
+import Command, {Injected, Optional} from "./command/decorator/command.decorator";
 import Discord = require('discord.js');
 import {CommandExecutionResult} from "./command/executor/command.executor";
 
-export default class HelpCommand extends Command {
+export default class HelpCommandClass {
 
-    public constructor() {
-        super("help", [], [
-            {
-                name: "message",
-                requirement: Requirement.INJECTED,
-                type: Discord.Message
-            },
-            {
-                name: "page",
-                requirement: Requirement.OPTIONAL,
-                type: Number
-            }
-        ]);
-    }
-
-    public async execute(message: Discord.Message, page: number = 1): Promise<CommandExecutionResult> {
-        await message.channel.send("pagina: " + page);
+    @Command("help")
+    public async execute(@Injected message: Discord.Message, @Optional() page: number = 1): Promise<CommandExecutionResult> {
+        await message.channel.send("page: "+page);
         return {};
     }
 
