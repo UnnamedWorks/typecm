@@ -2,7 +2,7 @@ export default class LinkedIterator<T> {
 
     private readonly parent?: LinkedIterator<T>;
     private readonly offset: number;
-    public readonly values: T[];
+    private readonly values: T[];
     public nextIndex: number;
 
     public constructor(values: T[], parent?: LinkedIterator<T>, offset: number = 0) {
