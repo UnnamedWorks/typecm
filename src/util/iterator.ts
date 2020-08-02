@@ -45,6 +45,14 @@ export default class LinkedIterator<T> {
         );
     }
 
+    public createChild(): LinkedIterator<T> {
+        return new LinkedIterator(
+            this.values.slice(this.nextIndex),
+            this,
+            this.nextIndex
+        );
+    }
+
     public static empty<T>(): LinkedIterator<T> {
         return new LinkedIterator([]);
     }

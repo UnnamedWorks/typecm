@@ -1,6 +1,10 @@
 import Command from "../command";
 
-export interface CommandExecutionResult {
+export enum CommandExecutionResult {
+
+    SUCCESS,
+    INVALID_ARGUMENTS,
+    USAGE
 
 }
 

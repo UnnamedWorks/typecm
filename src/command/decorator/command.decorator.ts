@@ -8,7 +8,7 @@ export function Consumes(consume: number) {
     return (target: any, propertyKey: string, parameterIndex: number) => {
         let existing: number[] = Reflect.getOwnMetadata("typecm:consumes", target, propertyKey) || [];
         existing[parameterIndex] = consume;
-        Reflect.defineMetadata("typecm:names", existing, target, propertyKey);
+        Reflect.defineMetadata("typecm:consumes", existing, target, propertyKey);
     };
 }
 
@@ -34,6 +34,6 @@ export function Optional(requirement: Requirement = Requirement.OPTIONAL) {
     }
 }
 
-export default function Command(names: string | string[]) {
+export default function ACommand(names: string | string[]) {
     return Reflect.metadata("typecm:names", names);
 }

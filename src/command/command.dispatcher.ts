@@ -21,6 +21,8 @@ export default class CommandDispatcher {
 
     public dispatchCommand(commandLine: string, context: Namespace): boolean {
 
+        context.set(CommandRegistry, "COMMAND_REGISTRY", this.commandRegistry);
+
         let args: string[] = commandLine.split(" ");
         let commandLabel: string = args.shift().toLowerCase();
 

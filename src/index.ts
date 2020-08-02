@@ -4,6 +4,7 @@ import DiscordCommandService from "./test/discord/discord.command.service";
 import ICommandBuilder from "./command/decorator/command.builder";
 import ReflectMetadataCommandBuilder from "./command/decorator/reflect/metadata.command.builder";
 import HelpCommandClass from "./help.command";
+import SayCommandClass from "./say.command";
 dotenv.config();
 
 const client = new Discord.Client();
@@ -14,7 +15,9 @@ let service = new DiscordCommandService(client, "-", {
 });
 
 service.binder.bind(Discord.Message).toInjector(context => context.get(Discord.Message, "MESSAGE"));
+
 service.registry.registerCommands(commandBuilder.buildMany(new HelpCommandClass()));
+service.registry.registerCommands(commandBuilder.buildMany(new SayCommandClass()));
 
 client.on("ready", () => console.log("ready!"));
 
