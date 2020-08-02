@@ -1,10 +1,10 @@
-import Key from "./identity/key";
+import {TypeLiteral} from "./identity/key";
 
 export default class Namespace {
 
-    private readonly backing: Map<Key<any>, Map<string, any>> = new Map<Key<any>, Map<string, any>>();
+    private readonly backing: Map<TypeLiteral<any>, Map<string, any>> = new Map<TypeLiteral<any>, Map<string, any>>();
 
-    public get<T>(type: Key<T>, name: string): T | undefined {
+    public get<T>(type: TypeLiteral<T>, name: string): T | undefined {
         let byName: Map<string, any> = this.backing.get(type);
         if (!byName) {
             return undefined;
@@ -12,7 +12,7 @@ export default class Namespace {
         return byName.get(name);
     }
 
-    public set<T>(type: Key<T>, name: string, value: T): void {
+    public set<T>(type: TypeLiteral<T>, name: string, value: T): void {
         let byName: Map<string, any> = this.backing.get(type);
         if (!byName) {
             byName = new Map<string, any>();

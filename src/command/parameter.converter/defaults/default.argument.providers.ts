@@ -1,7 +1,10 @@
-import {IParameterConverter} from "../parameter.converter";
+import {IArgumentProvider, IProvisionResult} from "../argument.provider";
+import Namespace from "../../namespace";
+import LinkedIterator from "../../../util/iterator";
 
-export function createStringConverter(): IParameterConverter<String> {
-    return (context, args) => {
+export class StringArgumentProvider implements IArgumentProvider<String> {
+
+    provide(context: Namespace, args: LinkedIterator<string>): IProvisionResult<String> {
         if (!args.hasNext()) {
             return {
                 error: "no-arguments"
@@ -14,11 +17,13 @@ export function createStringConverter(): IParameterConverter<String> {
         return {
             value: text.trim()
         };
-    };
+    }
+
 }
 
-export function createNumberConverter(): IParameterConverter<Number> {
-    return (context, args) => {
+export class NumberArgumentProvider implements IArgumentProvider<Number> {
+
+    provide(context: Namespace, args: LinkedIterator<string>): IProvisionResult<Number> {
         if (!args.hasNext()) {
             return {
                 error: "no-arguments"
@@ -31,5 +36,6 @@ export function createNumberConverter(): IParameterConverter<Number> {
             };
         }
         return {value};
-    };
+    }
+
 }

@@ -7,6 +7,8 @@ import ICommandExecutor, {CommandExecutionResult} from "./executor/command.execu
 
 export default class CommandDispatcher {
 
+    public static readonly REGISTRY_NAMESPACE: string = "REGISTRY";
+
     private readonly commandRegistry: CommandRegistry;
     private readonly commandParser: CommandParser;
     private readonly commandExecutor: ICommandExecutor;
@@ -21,7 +23,7 @@ export default class CommandDispatcher {
 
     public dispatchCommand(commandLine: string, context: Namespace): boolean {
 
-        context.set(CommandRegistry, "COMMAND_REGISTRY", this.commandRegistry);
+        context.set(CommandRegistry, CommandDispatcher.REGISTRY_NAMESPACE, this.commandRegistry);
 
         let args: string[] = commandLine.split(" ");
         let commandLabel: string = args.shift().toLowerCase();

@@ -2,7 +2,7 @@ import Command, {IParameter, Requirement} from "../command";
 import IBinder from "../parameter.converter/bind/binder";
 import LinkedIterator from "../../util/iterator";
 import Key from "../identity/key";
-import {IParameterConverter} from "../parameter.converter/parameter.converter";
+import {IArgumentProvider} from "../parameter.converter/argument.provider";
 import Binding from "../parameter.converter/bind/binding";
 import Namespace from "../namespace";
 
@@ -17,6 +17,7 @@ export default class CommandParser {
 
         let requiredArgumentCount: number =
             command.parameters.filter(param => param.requirement == Requirement.REQUIRED)
+                .filter(param => !param.type.modifiers.includes("INJECTED")) // exclude injected parameters
                 .map(param => param.consumes || 1)
                 .reduce((acc, current) => acc + current, 0);
 
@@ -33,6 +34,7 @@ export default class CommandParser {
 
             let param: IParameter = command.parameters[i];
             let type: Key<any> = param.type;
+            console.log(type);
             let binding: Binding<any> = binder.findBinding(type);
 
             if (!binding) {
@@ -41,20 +43,14 @@ export default class CommandParser {
                 };
             }
 
-            let converter: IParameterConverter<any> = binding.converter;
+            let converter: IArgumentProvider<any> = binding.provider;
             let consumes: number = param.consumes | 1;
             let nextIndexSnapshot = iterator.nextIndex;
-            let slice: LinkedIterator<string>;
-
-            if (param.requirement == Requirement.INJECTED) {
-                slice = LinkedIterator.empty();
-            } else {
-                slice = consumes == -1
+            let slice: LinkedIterator<string> = consumes == -1
                     ? iterator.slice(nextIndexSnapshot)
                     : iterator.slice(nextIndexSnapshot, nextIndexSnapshot + consumes);
-            }
 
-            let result = converter(namespace, slice);
+            let result = converter.provide(namespace, slice);
 
             if (result.error) {
                 if (param.requirement == Requirement.REQUIRED) {

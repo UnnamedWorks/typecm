@@ -1,17 +1,18 @@
 import IConverterModule from "../converters.module";
 import IBinder from "../bind/binder";
 
-import {createStringConverter, createNumberConverter} from "./defaults.parameter.converters";
-import {createRegistryInjector} from "./defaults.argument.injector";
+import {NumberArgumentProvider, StringArgumentProvider} from "./default.argument.providers";
+import {CommandRegistryArgumentInjector} from "./default.argument.injectors";
 import CommandRegistry from "../../command.registry";
+import {Injected} from "../../decorator/command.decorator";
 
 export default class DefaultConvertersModule implements IConverterModule {
 
     into(binder: IBinder): void {
 
-        binder.bind(String).toConverter(createStringConverter());
-        binder.bind(Number).toConverter(createNumberConverter());
-        binder.bind(CommandRegistry).toInjector(createRegistryInjector());
+        binder.bind(String).toProviderType(StringArgumentProvider);
+        binder.bind(Number).toProviderType(NumberArgumentProvider);
+        binder.bind(CommandRegistry).decorated(Injected).toProviderType(CommandRegistryArgumentInjector);
 
     }
 

@@ -3,8 +3,7 @@ import Key from "./identity/key";
 export enum Requirement {
     REQUIRED = 1,
     OPTIONAL,
-    WEAK_OPTIONAL,
-    INJECTED
+    WEAK_OPTIONAL
 }
 
 export const ALL_ARGS = -1;

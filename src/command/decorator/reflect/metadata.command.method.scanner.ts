@@ -1,9 +1,15 @@
 import ICommandMethodScanner, {CommandMethod} from "../command.method.scanner";
 import "reflect-metadata";
 
+/**
+ * @see ICommandMethodScanner
+ */
 export default class ReflectMetadataMethodScanner implements ICommandMethodScanner {
 
-    scan(object: any, filter?: (fun: Function) => boolean): CommandMethod[] {
+    /**
+     * @see ICommandMethodScanner
+     */
+    public scan(object: any, filter?: (fun: Function) => boolean): CommandMethod[] {
         let keys: string[] = [];
         let checking: any = object;
 
