@@ -13,7 +13,6 @@
   "author": "Unnamed Team",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.2.0",
     "reflect-metadata": "^0.1.13"
   },
   "bugs": {
