@@ -1,7 +1,6 @@
 {
-  "name": "typecm",
+  "name": "@yusshu/typecm",
   "version": "0.1.0",
-  "description": "",
   "main": "./src/index.js",
   "scripts": {
     "start": "tsc & node out/index.js"
@@ -14,10 +13,16 @@
   "author": "Unnamed Team",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^14.0.23",
-    "@types/ws": "^7.2.6",
     "discord.js": "^12.2.0",
-    "dotenv": "^8.2.0",
     "reflect-metadata": "^0.1.13"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/UnnamedWorks/typecm/issues"
+  },
+  "homepage": "https://github.com/UnnamedWorks/typecm#readme",
+  "devDependencies": {
+    "@types/node": "^14.0.27",
+    "@types/ws": "^7.2.6"
+  },
+  "description": "A simple command manager for TypeScript"
 }

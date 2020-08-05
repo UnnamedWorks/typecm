@@ -15,9 +15,6 @@ export default {
     ConvertersModule: require('./command/argument.provider/converters.module'),
     CommandExecutor: require('./command/executor/command.executor'),
     Key: require('./command/identity/key').default.Key,
-    TypeLiteral: require('./command/identiy/key').TypeLiteral,
-
-    // Discord
-    DiscordCommandService: require('./discord/discord.command.service')
+    TypeLiteral: require('./command/identiy/key').TypeLiteral
 
 };
