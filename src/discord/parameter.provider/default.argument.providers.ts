@@ -1,4 +1,4 @@
-import {IArgumentProvider, IProvisionResult} from "../../command/parameter.converter/argument.provider";
+import {IArgumentProvider, IProvisionResult} from "../../command/argument.provider/argument.provider";
 import Discord, {TextChannel} from 'discord.js';
 import Namespace from "../../command/namespace";
 import LinkedIterator from "../../util/iterator";

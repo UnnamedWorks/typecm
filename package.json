@@ -2,9 +2,13 @@
   "name": "typecm",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "start": "tsc & node out/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnnamedWorks/typecm.git"
   },
   "keywords": [],
   "author": "Unnamed Team",

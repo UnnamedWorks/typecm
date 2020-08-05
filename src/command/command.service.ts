@@ -1,12 +1,12 @@
-import IBinder from "./parameter.converter/bind/binder";
+import IBinder from "./argument.provider/bind/binder";
 import CommandDispatcher from "./command.dispatcher";
 import CommandRegistry from "./command.registry";
 import ICommandExecutor from "./executor/command.executor";
 import CommandParser from "./parser/command.parser";
-import Binder from "./parameter.converter/bind/simple.binding.builder";
+import Binder from "./argument.provider/bind/simple.binding.builder";
 import EvalCommandExecutor from "./executor/eval.command.executor";
 import DefaultCommandExecutor from "./executor/default.command.executor";
-import DefaultConvertersModule from "./parameter.converter/defaults/defaults.module";
+import DefaultConvertersModule from "./argument.provider/defaults/defaults.module";
 
 export interface CommandServiceSettings {
 

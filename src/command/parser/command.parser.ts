@@ -1,9 +1,9 @@
 import Command, {IParameter, Requirement} from "../command";
-import IBinder from "../parameter.converter/bind/binder";
+import IBinder from "../argument.provider/bind/binder";
 import LinkedIterator from "../../util/iterator";
 import Key from "../identity/key";
-import {IArgumentProvider} from "../parameter.converter/argument.provider";
-import Binding from "../parameter.converter/bind/binding";
+import {IArgumentProvider} from "../argument.provider/argument.provider";
+import Binding from "../argument.provider/bind/binding";
 import Namespace from "../namespace";
 
 export interface IParseResult {

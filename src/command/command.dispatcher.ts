@@ -2,7 +2,7 @@ import CommandRegistry from "./command.registry";
 import Command from "./command";
 import Namespace from "./namespace";
 import CommandParser, {IParseResult} from "./parser/command.parser";
-import IBinder from "./parameter.converter/bind/binder";
+import IBinder from "./argument.provider/bind/binder";
 import ICommandExecutor, {CommandExecutionResult} from "./executor/command.executor";
 
 export default class CommandDispatcher {

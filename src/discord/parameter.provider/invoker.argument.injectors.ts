@@ -1,4 +1,4 @@
-import ArgumentInjector from "../../command/parameter.converter/argument.injector";
+import ArgumentInjector from "../../command/argument.provider/argument.injector";
 import Discord from 'discord.js';
 import Namespace from "../../command/namespace";
 import DiscordCommandService from "../discord.command.service";

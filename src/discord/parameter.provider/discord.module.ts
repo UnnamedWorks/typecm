@@ -1,5 +1,5 @@
-import IConverterModule from "../../command/parameter.converter/converters.module";
-import IBinder from "../../command/parameter.converter/bind/binder";
+import IConverterModule from "../../command/argument.provider/converters.module";
+import IBinder from "../../command/argument.provider/bind/binder";
 import Discord from 'discord.js';
 import {Injected} from "../../command/decorator/command.decorator";
 import {MessageArgumentInjector, AuthorArgumentInjector} from "./invoker.argument.injectors";
