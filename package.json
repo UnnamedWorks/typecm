@@ -1,6 +1,6 @@
 {
   "name": "@yusshu/typecm",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "main": "./out/index.js",
   "types": "./out/index.d.ts",
   "scripts": {
