@@ -1,9 +1,11 @@
 {
   "name": "@yusshu/typecm",
   "version": "1.2.0",
-  "main": "./src/index.js",
+  "main": "./out/index.js",
+  "types": "./out/index.d.ts",
   "scripts": {
-    "start": "tsc & node out/index.js"
+    "start": "tsc & node out/index.js",
+    "prepublish": "tsc"
   },
   "repository": {
     "type": "git",
