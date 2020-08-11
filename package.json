@@ -5,7 +5,7 @@
   "types": "./out/index.d.ts",
   "scripts": {
     "start": "tsc & node out/index.js",
-    "prepublish": "tsc"
+    "prepare": "tsc"
   },
   "repository": {
     "type": "git",

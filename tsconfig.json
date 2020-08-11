@@ -16,8 +16,5 @@
         "node_modules/*"
       ]
     }
-  },
-  "include": [
-    "out/**/*"
-  ]
+  }
 }
